@@ -4,7 +4,17 @@ pipeline {
     stages {
         stage('NPM Install') {
             steps {
-                echo 'npm i'
+                bat 'npm i'
+            }
+        }
+        stage('NPM Audit') {
+            steps {
+                bat 'npm audit'
+            }
+        }
+        stage('Run Integration tests') {
+            steps {
+                bat 'npm run test'
             }
         }
     }
